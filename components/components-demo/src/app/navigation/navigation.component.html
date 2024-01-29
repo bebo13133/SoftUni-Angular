@@ -1,5 +1,14 @@
+
 <!-- <p>navigation works!</p>
  -->
 <div id="nav">
-    <button (click) = "navigationClickMe()">Click</button>
+    <span *ngIf="toggle">
+    <ul >
+        <li *ngFor="let item of activeUsers">Name {{item.name}}: age {{item.age}}</li>
+    </ul>    
+    </span>
+    <!-- <div>
+    <span >{{toggle ? "show" : "hide"}}</span>
+</div> -->
+    <button (click) = "navigationClickMe()">{{toggle ? 'noActive': "Active"}}</button>
 </div>
