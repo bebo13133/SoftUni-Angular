@@ -10,3 +10,9 @@
 ul li{ 
     list-style: none;
 }
+.green {
+    color: green;
+}
+.blue {
+    color: blue;
+}

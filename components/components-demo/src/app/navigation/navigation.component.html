@@ -4,7 +4,7 @@
 <div id="nav">
     <span *ngIf="toggle">
     <ul >
-        <li *ngFor="let item of activeUsers">Name {{item.name}}: age {{item.age}}</li>
+        <li *ngFor="let item of activeUsers"><span >Name {{item.name}}</span>: <span [class.green]="item.age %2 ==0" [class.blue]="item.age %2 !==0">age {{item.age}}</span></li>
     </ul>    
     </span>
     <!-- <div>
