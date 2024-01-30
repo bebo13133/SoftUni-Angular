@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ArticleComponent } from '../article/article.component';
 import { ArticleData } from '../data/data';
-
+// import { Article} from '../models/article.models';
 @Component({
   selector: 'app-articles',
   standalone: true,
