@@ -1,1 +1,7 @@
 <h3>{{title}} works!</h3>
+<div>
+  <input #inputName type="text" placeholder="name">
+  <input #inputAge type="text" placeholder="age">
+  <button (click)="addUser(inputName,inputAge)">Add</button>
+</div>
+<app-users-list [users]="users"/>
