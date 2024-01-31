@@ -22,13 +22,25 @@ export class AppComponent {
 
 
 }
-const o = new Observable((observe)=>{
-  observe.next(1000)
-  observe.next(2000)
-  observe.next(3000)
-  observe.next(2000)
-  observe.next(4000)
+
+function interval (intervalValue:number){
+return  new Observable((observe)=>{
+  // observe.next(1000)
+  // observe.next(2000)
+  // observe.next(3000)
+  // observe.next(2000)
+  // observe.next(4000)
+
+  let counter = 0;
+
+  const timer = setInterval(()=>{
+    observe.next(counter++)
+  },intervalValue)
+  return ()=>{
+    clearInterval(timer)
+  }
 })
-o.subscribe(data =>{
+}
+interval(10000).subscribe(data =>{
   console.log('data observer',data)
 })
