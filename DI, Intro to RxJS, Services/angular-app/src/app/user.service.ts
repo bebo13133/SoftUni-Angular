@@ -1,16 +1,10 @@
-import { Component, } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import {UsersListComponent} from './users-list/users-list.component'
+import { Injectable } from '@angular/core';
 import { User } from './Type/User';
-@Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet,UsersListComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
-})
-export class AppComponent {
-  title = 'angular-app';
+
+// @Injectable({
+//   providedIn: 'root'
+// })
+export class UserService {
 
   constructor() {
     setInterval(() =>{
