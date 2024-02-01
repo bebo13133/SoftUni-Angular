@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
   imports: [RouterOutlet, UsersListComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  providers:[UserService]
+  providers: [UserService]
 })
 export class AppComponent {
   title = 'angular-app';
@@ -23,24 +23,24 @@ export class AppComponent {
 
 }
 
-function interval (intervalValue:number){
-return  new Observable((observe)=>{
-  // observe.next(1000)
-  // observe.next(2000)
-  // observe.next(3000)
-  // observe.next(2000)
-  // observe.next(4000)
+function interval(intervalValue: number) {
+  return new Observable((observe) => {
+    // observe.next(1000)
+    // observe.next(2000)
+    // observe.next(3000)
+    // observe.next(2000)
+    // observe.next(4000)
 
-  let counter = 0;
+    let counter = 0;
 
-  const timer = setInterval(()=>{
-    observe.next(counter++)
-  },intervalValue)
-  return ()=>{
-    clearInterval(timer)
-  }
-})
+    const timer = setInterval(() => {
+      observe.next(counter++)
+    }, intervalValue)
+    return () => {
+      clearInterval(timer)
+    }
+  })
 }
-interval(10000).subscribe(data =>{
-  console.log('data observer',data)
+interval(10000).subscribe(data => {
+  console.log('data observer', data)
 })
