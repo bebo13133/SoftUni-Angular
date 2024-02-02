@@ -4,6 +4,7 @@ import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { MainComponent } from './main/main.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ApiService } from './api.service';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     FooterComponent,
     MainComponent,HttpClientModule],
+    providers: [HttpClientModule, ApiService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
