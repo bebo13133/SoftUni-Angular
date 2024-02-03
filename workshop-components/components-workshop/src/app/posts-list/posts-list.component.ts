@@ -22,7 +22,12 @@ ngOnInit ():void {
     next:(posts)=>{
       this.postList = posts;
       this.isLoading = false;
-    }})
+    },
+      error: (err) => {
+      this.isLoading = false
+      console.error(err)
+    }
+  })
 }
 
 }

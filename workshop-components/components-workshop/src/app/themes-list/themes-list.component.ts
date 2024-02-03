@@ -22,7 +22,12 @@ export class ThemesListComponent implements OnInit {
  
         this.themesList = themes
         this.isLoading =false
-      }})
+      },
+      error: (err) => {
+        this.isLoading = false
+        console.error(err)
+      }
+    })
   }
 
 
