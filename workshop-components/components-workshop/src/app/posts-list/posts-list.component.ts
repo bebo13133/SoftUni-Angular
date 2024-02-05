@@ -7,27 +7,27 @@ import { LoaderComponent } from '../shared/loader/loader.component';
 @Component({
   selector: 'app-posts-list',
   standalone: true,
-  imports: [CommonModule,LoaderComponent ],
+  imports: [CommonModule, LoaderComponent],
   templateUrl: './posts-list.component.html',
   styleUrl: './posts-list.component.css'
 })
-export class PostsListComponent implements OnInit{
-isLoading:boolean = true;
-  postList:Post[] = []
+export class PostsListComponent implements OnInit {
+  isLoading: boolean = true;
+  postList: Post[] = []
 
-constructor(private ApiService: ApiService){}
-ngOnInit ():void {
+  constructor(private ApiService: ApiService) { }
+  ngOnInit(): void {
 
-  this.ApiService.getPosts(5).subscribe({
-    next:(posts)=>{
-      this.postList = posts;
-      this.isLoading = false;
-    },
+    this.ApiService.getPosts(5).subscribe({
+      next: (posts) => {
+        this.postList = posts;
+        this.isLoading = false;
+      },
       error: (err) => {
-      this.isLoading = false
-      console.error(err)
-    }
-  })
-}
+        this.isLoading = false
+        console.error(err)
+      }
+    })
+  }
 
 }
