@@ -6,6 +6,7 @@ import { MainComponent } from './main/main.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './api.service';
 import { LoaderComponent } from './shared/loader/loader.component';
+import { HomeComponent } from './home/home.component';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ import { LoaderComponent } from './shared/loader/loader.component';
   imports: [RouterOutlet,
     HeaderComponent,
     FooterComponent,
-    MainComponent,HttpClientModule,LoaderComponent],
+    MainComponent,HttpClientModule,LoaderComponent,HomeComponent],
     providers: [HttpClientModule, ApiService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
