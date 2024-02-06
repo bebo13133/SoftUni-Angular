@@ -11,11 +11,15 @@ import { HomeComponent } from './home/home.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,
+  imports: [
+    RouterOutlet,
     HeaderComponent,
     FooterComponent,
-    MainComponent,HttpClientModule,LoaderComponent,HomeComponent],
-    providers: [HttpClientModule, ApiService],
+    MainComponent, 
+    HttpClientModule, 
+    LoaderComponent, 
+    HomeComponent],
+  providers: [HttpClientModule, ApiService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
