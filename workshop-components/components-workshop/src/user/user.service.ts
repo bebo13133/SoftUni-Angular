@@ -37,6 +37,6 @@ export class UserService {
   logout(): void {
     this.user = undefined;
     localStorage.removeItem(this.USER_KEY);
-    this.router.navigate(["/home"]);
+
   }
 }
