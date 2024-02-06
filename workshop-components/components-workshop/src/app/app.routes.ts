@@ -4,6 +4,8 @@ import { LoginComponent } from '../user/login/login.component';
 import { RegisterComponent } from '../user/register/register.component';
 import { ProfileComponent } from '../user/profile/profile.component';
 import { NewThemeComponent } from './theme/new-theme/new-theme.component';
+import { MainComponent } from './main/main.component';
+import { CurrentThemeComponent } from './theme/current-theme/current-theme.component';
 
 export const routes: Routes = [{
     path: '',
@@ -29,8 +31,23 @@ export const routes: Routes = [{
     component: ProfileComponent,
 },
 {
-    path: 'new-theme',
+    path: 'add-theme',
     component: NewThemeComponent,
+},
+{
+    path: 'themes',
+    // component: MainComponent,
+    children:[
+        {
+            path:'',
+            pathMatch:"full",
+            component: MainComponent
+        },
+        {
+            path:':themeId',
+            component: CurrentThemeComponent,
+        }
+    ],
 },
 
 ];

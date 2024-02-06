@@ -18,7 +18,7 @@ import { HomeComponent } from './home/home.component';
     MainComponent, 
     HttpClientModule, 
     LoaderComponent, 
-    HomeComponent],
+   ],
   providers: [HttpClientModule, ApiService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
