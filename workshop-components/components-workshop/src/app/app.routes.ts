@@ -3,6 +3,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from '../user/login/login.component';
 import { RegisterComponent } from '../user/register/register.component';
 import { ProfileComponent } from '../user/profile/profile.component';
+import { NewThemeComponent } from './theme/new-theme/new-theme.component';
 
 export const routes: Routes = [{
     path: '',
@@ -26,6 +27,10 @@ export const routes: Routes = [{
 {
     path: 'profile',
     component: ProfileComponent,
+},
+{
+    path: 'new-theme',
+    component: NewThemeComponent,
 },
 
 ];
