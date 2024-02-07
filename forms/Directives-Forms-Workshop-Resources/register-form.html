@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/3cd69e2433.js" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+
+<body>
+
+<div class="container">
+
+  <form action="" method="post">
+    
+    <fieldset>
+      <h1>Registration Form</h1>
+
+      <p class="field field-icon">
+        <label for="username"><span><i class="fas fa-user"></i></span></label>
+        <input type="text" name="username" id="username" class="error" placeholder="Mark Ulrich">
+      </p>
+
+      <!-- if error -->
+      <p class="error">
+        Message for Error
+      </p>
+      <!-- end if error -->
+      
+      <p class="field field-icon">
+        <label for="email"><span><i class="fas fa-envelope"></i></span></label>
+        <input type="text" name="email" id="email" placeholder="marк@gmial.com">
+      </p>
+
+      <p class="field field-icon">
+        <label for="tel"><span><i class="fas fa-phone"></i></span></label>
+        <select name="tel" id="tel" class="tel">
+          <option value="1">+359</option>
+        </select>
+        <input type="text" name="tel" id="tel" placeholder="888 888">
+      </p>
+
+      <p class="field field-icon">
+        <label for="building"><span><i class="fas fa-building"></i></span></label>
+        <select name="building" id="building" class="building">
+          <option value="1">Designer</option>
+        </select>
+      </p>
+
+      <p class="field field-icon">
+        <label for="password"><span><i class="fas fa-lock"></i></span></label>
+        <input type="password" name="password" id="password" placeholder="******">
+      </p>
+
+      <p class="field field-icon">
+        <label for="re-password"><span><i class="fas fa-lock"></i></span></label>
+        <input type="re-password" name="re-password" id="re-password" placeholder="******">
+      </p>
+
+      <p>
+        <button>Create Account</button>
+      </p>
+      
+      <p class="text-center">
+        Have an account?
+        <a href="">Log In</a>
+      </p>
+      
+    </fieldset>
+  </form>
+</div>
+  
+
+</body>
+
+</html>
