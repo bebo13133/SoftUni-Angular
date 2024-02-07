@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-current-theme',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './current-theme.component.html',
   styleUrl: './current-theme.component.css'
 })
