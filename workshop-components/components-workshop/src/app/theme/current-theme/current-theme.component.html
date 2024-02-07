@@ -2,14 +2,14 @@
     <!-- theme content  -->
     <div class="theme-content">
         <!-- theme-title  -->
-        <div class="theme-title">
+        <div  class="theme-title">
             <div class="theme-name-wrapper">
                 <div class="theme-name">
-                    <h2>Angular 10</h2>
-                    <p>Date: <time>2020-10-10 12:08:28</time></p>
+                    <h2>{{theme?.themeName}}</h2>
+                    <p>Date: <time>{{theme?.created_at}}</time></p>
                 </div>
                 <div class="subscribers">
-                    <p>Subscribers: <span>456</span></p>
+                    <p>Subscribers: <span>{{theme?.subscribers?.length}}</span></p>
                     <!-- <button class="subscribe">Subscribe</button>
                     <button class="unsubscribe">Unsubscribe</button> -->
                 </div>
