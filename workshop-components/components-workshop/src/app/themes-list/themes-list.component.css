@@ -1,19 +1,18 @@
 .theme-container a {
     text-decoration: none;
     color: inherit;
-  }
-  
-  .theme-container span {
+}
+
+.theme-container span {
     font-weight: bold;
-  }
-  
-  .theme-container h2,
-  p {
+}
+
+.theme-container h2, p {
     padding: 0.3em 0 0.2em;
     margin: 0;
-  }
-  
-  .theme-name-wrapper {
+}
+
+.theme-name-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,44 +21,44 @@
     border-radius: 0.3em;
     font-size: 0.8em;
     margin-top: 1em;
-  }
-  
-  .theme-title {
+}
+
+.theme-title {
     padding: 0;
-  }
-  
-  .theme-name {
+}
+
+.theme-name {
     width: 100%;
-  }
-  
-  .columns {
+}
+
+.columns {
     display: flex;
     justify-content: space-between;
     margin-top: 0.7rem;
-  }
-  
-  .subscribers {
+}
+
+.subscribers {
     text-align: right;
     flex-basis: 25%;
-  }
-  
-  .subscribers button {
+}
+
+.subscribers button {
     padding: 0.2rem 0.5rem;
     border: none;
     border-radius: 0.3rem;
     color: white;
     cursor: pointer;
     width: 100%;
-  }
-  
-  .subscribe {
+}
+
+.subscribe {
     background-color: green;
-  }
-  
-  .unsubscribe {
+}
+
+.unsubscribe {
     background-color: red;
-  }
-  
-  time {
+}
+
+time {
     font-weight: bold;
-  }
+}

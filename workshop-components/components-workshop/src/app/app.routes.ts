@@ -40,6 +40,7 @@ export const routes: Routes = [{
     canActivate:[AuthActivate],
 
 },
+
 {
     path: 'themes',
     // component: MainComponent,
