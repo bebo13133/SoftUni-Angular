@@ -21,6 +21,7 @@ export class HeaderComponent {
   get firstName(): string {
     return this.userService.user?.firstName||''
   }
+  
   logout(): void {
      this.userService.logout()
     this.router.navigate(['/home']);

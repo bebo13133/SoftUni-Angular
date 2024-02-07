@@ -3,11 +3,13 @@ import { ApiService } from '../api.service';
 import { Theme } from '../types/theme';
 import { CommonModule } from '@angular/common';
 import { LoaderComponent } from '../shared/loader/loader.component';
+import { WelcomeComponent } from '../welcome/welcome.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-themes-list',
   standalone: true,
-  imports: [CommonModule,LoaderComponent],
+  imports: [CommonModule,LoaderComponent,WelcomeComponent,RouterLink],
   templateUrl: './themes-list.component.html',
   styleUrl: './themes-list.component.css'
 })
