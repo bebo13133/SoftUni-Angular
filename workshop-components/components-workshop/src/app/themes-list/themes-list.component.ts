@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { LoaderComponent } from '../shared/loader/loader.component';
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { RouterLink } from '@angular/router';
+import { UserService } from '../../user/user.service';
 
 @Component({
   selector: 'app-themes-list',
@@ -16,7 +17,11 @@ import { RouterLink } from '@angular/router';
 export class ThemesListComponent implements OnInit {
   themesList: Theme[] = [];
   isLoading:boolean = true;
-  constructor(private ApiService: ApiService) { }
+  constructor(private ApiService: ApiService, private userService:UserService) { }
+
+get isLoggedIn():boolean {
+  return this.userService.isLogged
+}
 
   ngOnInit(): void {
     this.ApiService.getThemes().subscribe({
