@@ -1,19 +1,21 @@
-import { Directive, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Directive, Input, OnChanges, OnInit, Optional, SimpleChanges, TemplateRef, ViewContainerRef } from '@angular/core';
 
 @Directive({
   selector: '[appMyStructural]',
   standalone: true
 })
-export class MyStructuralDirective implements OnInit , OnChanges{
-@Input() appMyStructural:boolean = false;
+export class MyStructuralDirective implements OnChanges {
+  @Input() appMyStructural: boolean = false;
 
-  constructor() { }
+  constructor(
+    private templateRef: TemplateRef<any>,
+    private vcRef: ViewContainerRef
+  ) { }
 
-ngOnChanges(changes: SimpleChanges): void {
-  console.log(this.appMyStructural)
-  console.log(changes)
-  
-}
-ngOnInit(): void {
-}
+  ngOnChanges(changes: SimpleChanges): void {
+
+    this.appMyStructural ? this.vcRef.createEmbeddedView(this.templateRef) : this.vcRef.clear()
+
+  }
+
 }
