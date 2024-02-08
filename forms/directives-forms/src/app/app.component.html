@@ -11,5 +11,10 @@
   <div>Simple div 1.1</div>
 </ng-template>
 <hr>
+<hr>
+<div *appMyStructural="isShown"> Structural directives (Used 1)</div>
+<hr>
 <button (click)="toggle()">{{!isShown?"Show":"Hide"}}</button>
+
+
 <router-outlet />
