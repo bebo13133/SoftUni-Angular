@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   standalone: true
 })
 export class MyRouterLinkDirective implements OnInit {
-@Input() appMyRouterLink: string = ''
+  @Input() appMyRouterLink: string = ''
   constructor(private el: ElementRef, private render: Renderer2, private router: Router) { }
 
   ngOnInit(): void {

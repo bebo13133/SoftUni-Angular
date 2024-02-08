@@ -6,7 +6,7 @@ import { MyRouterLinkDirective } from './my-router-link.directive';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,HightlightOnMoveDirective,MyRouterLinkDirective],
+  imports: [RouterOutlet, HightlightOnMoveDirective, MyRouterLinkDirective],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
