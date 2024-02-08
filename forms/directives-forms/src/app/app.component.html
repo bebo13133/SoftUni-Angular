@@ -4,4 +4,12 @@
 <hr>
 <div appMyRouterLink="/register">Go to register</div>
 <hr>
+<hr>
+<div *ngIf="isShown">Simple Div 1 </div>
+<hr>
+<ng-template [ngIf]="isShown">
+  <div>Simple div 1.1</div>
+</ng-template>
+<hr>
+<button (click)="toggle()">{{!isShown?"Show":"Hide"}}</button>
 <router-outlet />
