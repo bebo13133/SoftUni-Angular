@@ -9,6 +9,7 @@
         <label for="password">Password</label>
         <input type="text" id="password" name="password" ngModel #passwordInput="ngModel" [appMaxCount]="4">
     </div>
-    <div *ngIf="passwordInput.errors?.['appMaxCount']">Input length is to short {{passwordInput.errors?.['appMaxCount']}}</div>
+    <div *ngIf="passwordInput.errors?.['appMaxCount']">Input length is to short
+        {{passwordInput.errors?.['appMaxCount']}}</div>
     <button>Submit</button>
 </form>
