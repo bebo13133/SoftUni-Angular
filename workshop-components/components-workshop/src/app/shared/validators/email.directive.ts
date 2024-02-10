@@ -5,16 +5,16 @@ import { AbstractControl, ValidationErrors, Validator } from '@angular/forms';
   selector: '[appEmail]',
   standalone: true
 })
-export class EmailDirective implements Validator,OnChanges {
-@Input() appEmail: string[] =[]
+export class EmailDirective implements Validator, OnChanges {
+  @Input() appEmail: string[] = []
   constructor() { }
-validate(control: AbstractControl<any, any>): ValidationErrors | null {
+  validate(control: AbstractControl<any, any>): ValidationErrors | null {
 
 
 
-  return null
-}
-ngOnChanges(changes: SimpleChanges): void {
-  
-}
+    return null
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+
+  }
 }
