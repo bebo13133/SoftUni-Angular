@@ -3,11 +3,13 @@ import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { appEmailValidator } from '../../app/shared/validators';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule,CommonModule,],
+  providers: [],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
