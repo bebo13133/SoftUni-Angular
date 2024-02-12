@@ -4,11 +4,12 @@ import { sameValueGroupValidator } from '../../app/shared/validators/same-value-
 import { CommonModule, JsonPipe } from '@angular/common';
 import { appEmailValidator } from '../../app/shared/validators';
 import { DEFAULT_EMAIL_DOMAINS } from '../../app/shared/constants';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, JsonPipe,CommonModule,],
+  imports: [ReactiveFormsModule, JsonPipe,CommonModule,RouterLink],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 
@@ -16,7 +17,7 @@ import { DEFAULT_EMAIL_DOMAINS } from '../../app/shared/constants';
 export class RegisterComponent {
 
   form = this.fb.group({
-  username:['',[Validators.required]],
+  username:['',[Validators.required,Validators.minLength(5)]],
   email:['',[Validators.required, appEmailValidator(DEFAULT_EMAIL_DOMAINS)]],
   ext:[''],
   tel:[''],
@@ -31,5 +32,7 @@ export class RegisterComponent {
 
 
   constructor(private fb:FormBuilder){}
-
+  registerHandler():void{
+console.log(this.form.value)
+  }
 }

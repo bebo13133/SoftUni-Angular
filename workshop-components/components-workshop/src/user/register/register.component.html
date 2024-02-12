@@ -1,5 +1,5 @@
 <div class="container">
-    <form class="register" [formGroup]="form">
+    <form class="register" [formGroup]="form" (ngSubmit)="registerHandler()">
 
         <fieldset>
             <h2>Registration Form</h2>
@@ -9,7 +9,7 @@
                 <label for="username"><span><i class="fas fa-user"></i></span></label>
                 <input class="input-error" type="text" formControlName="username" id="username" placeholder="Johny">
             </p>
-            <p *ngIf="form.get('username')?.touched && form.get('username')?.errors?.['required'] " class="error">
+            <p *ngIf="form.get('username')?.touched && form.get('username')?.errors?.['required'] && form.get('username')?.errors?.['minlength'] " class="error">
                 Username is required!
             </p>
 
@@ -23,7 +23,7 @@
             <p class="error" *ngIf="form.get('email')?.errors?.['required']">
                 Email is required!
             </p>
-            <p class="error" *ngIf="form.get('email')?.errors?.['appEmail']">
+            <p class="error" *ngIf="form.get('email')?.errors?.['appEmailValidator']">
                 Email is not valid!
             </p>
               </ng-container>
@@ -63,11 +63,11 @@
                     *ngIf="form.get('pass')?.errors?.['sameValueGroupValidator'] && form.get('pass')?.get('rePassword')?.touched">
                     Repeat Password does not match password!</p>
             </ng-container>
-            <button disabled>Create Account</button>
+            <button [disabled]="form.invalid">Create Account</button>
 
             <p class="text-center">
                 Have an account?
-                <a href="/login">Log In</a>
+                <a routerLink="/login" routerLinkActive="router-link-active" >Log In</a>
             </p>
 
         </fieldset>

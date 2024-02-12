@@ -10,7 +10,15 @@ import { Router } from '@angular/router';
 })
 export class UserService {
   USER_KEY = '[user]'
-  user: User | undefined;
+  user: User | null = {
+    username: "Bobi",
+    email: "test@test.com",
+    tel: '+00359 123123123'
+
+  } as any
+
+
+
 
   get isLogged(): boolean {
     return !!this.user
@@ -23,7 +31,7 @@ export class UserService {
       const lcUser = localStorage.getItem(this.USER_KEY) || "";
       this.user = JSON.parse(lcUser);
     } catch (err) {
-      this.user = undefined;
+      this.user = null;
     }
   }
 
@@ -31,11 +39,13 @@ export class UserService {
     this.user = {
       email: "bebo@abv.bg",
       firstName: "Bobi",
+      username:"Bobi",
+      tel: "+00359 123123123",
     }
     localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
   }
   logout(): void {
-    this.user = undefined;
+    this.user = null;
     localStorage.removeItem(this.USER_KEY);
 
   }
