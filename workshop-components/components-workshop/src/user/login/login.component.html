@@ -30,7 +30,7 @@
                     Password must be at least 5 characters!
                 </p>
             </ng-container>
-            <button>Login</button>
+            <button [disabled]="form.invalid">Login</button>
 
             <p class="text-center">
                 Have an account?
