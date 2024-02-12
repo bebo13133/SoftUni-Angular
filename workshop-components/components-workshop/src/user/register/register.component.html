@@ -9,7 +9,7 @@
                 <label for="username"><span><i class="fas fa-user"></i></span></label>
                 <input class="input-error" type="text" formControlName="username" id="username" placeholder="Johny">
             </p>
-            <p class="error">
+            <p *ngIf="form.get('username')?.touched && form.get('username')?.errors?.['required'] " class="error">
                 Username is required!
             </p>
 
@@ -18,13 +18,15 @@
                 <label for="email"><span><i class="fas fa-envelope"></i></span></label>
                 <input type="email" id="email" formControlName="email" placeholder="john.doe@gmail.com">
             </p>
-            <p class="error">
+            <ng-container *ngIf="form.get('email')?.touched" >
+
+            <p class="error" *ngIf="form.get('email')?.errors?.['required']">
                 Email is required!
             </p>
-            <p class="error">
+            <p class="error" *ngIf="form.get('email')?.errors?.['appEmail']">
                 Email is not valid!
             </p>
-
+              </ng-container>
             <!-- telephone -->
             <p class="field field-icon">
                 <label for="tel"><span><i class="fas fa-phone"></i></span></label>
@@ -41,13 +43,15 @@
                     <input type="password" id="password" name="password" formControlName="password"
                         placeholder="******">
                 </p>
-                <p class="error">
+                <ng-container *ngIf="form.get('pass')?.get('password')?.touched">
+                <p class="error" *ngIf="form.get('pass')?.get('password')?.errors?.['required']">
+                               
                     Password is required!
                 </p>
-                <p class="error">
-                    Password must be at least 4 characters!
+                <p class="error" *ngIf="form.get('pass')?.get('password')?.errors?.['minlength']">
+                    Password must be at least 5 characters!
                 </p>
-
+            </ng-container>
                 <!-- rePassword -->
                 <p class="field field-icon">
                     <label for="rePassword"><span><i class="fas fa-lock"></i></span></label>

@@ -1,25 +1,28 @@
 import { Component } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { sameValueGroupValidator } from '../../app/shared/validators/same-value-group-validtors';
 import { CommonModule, JsonPipe } from '@angular/common';
+import { appEmailValidator } from '../../app/shared/validators';
+import { DEFAULT_EMAIL_DOMAINS } from '../../app/shared/constants';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, JsonPipe,CommonModule],
+  imports: [ReactiveFormsModule, JsonPipe,CommonModule,],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrl: './register.component.css',
+
 })
 export class RegisterComponent {
 
   form = this.fb.group({
-  username:[],
-  email:[],
-  ext:[],
-  tel:[],
+  username:['',[Validators.required]],
+  email:['',[Validators.required, appEmailValidator(DEFAULT_EMAIL_DOMAINS)]],
+  ext:[''],
+  tel:[''],
   pass:this.fb.group({
-    password:[],
-    rePassword:[],
+    password:['',[Validators.required, Validators.minLength(5)]],
+    rePassword:[''],
   },{
     validators:[sameValueGroupValidator('password', 'rePassword') ]
   })
