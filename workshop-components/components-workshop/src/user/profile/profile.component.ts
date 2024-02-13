@@ -24,12 +24,12 @@ export class ProfileComponent implements OnInit {
 
   get user() {
     const { username, email, tel: telephone } = this.userService.user!;
-    const [ext, ...tel] = telephone.split(' ');
+    // const [ext, ...tel] = telephone.split(' ');
     return {
       username,
       email,
-      tel: tel.join(' '),
-      ext,
+      // tel: tel.join(' '),
+      // ext,
     }
   }
   constructor(private fb: FormBuilder, private userService: UserService) {
