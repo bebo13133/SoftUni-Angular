@@ -14,7 +14,7 @@
                 <p>Phone: </p>
                 <p>{{profileDetails?.ext}} {{profileDetails?.tel}}</p>
             </div>
-            <button class="edit-button" (click)="toggleEditMode()" >Edit</button>
+            <button class="edit-button" (click)="toggleEditMode()">Edit</button>
         </ng-container>
 
         <ng-container *ngIf="isEditMode">
@@ -25,7 +25,7 @@
                 </div>
                 <ng-container *ngIf="form.get('username')?.touched">
                     <p class="error" *ngIf="form.get('username')?.errors?.['required']">
-                                   
+
                         Password is required!
                     </p>
                     <p class="error" *ngIf="form.get('username')?.errors?.['minlength']">
@@ -36,7 +36,7 @@
                     <p>Email: </p>
                     <input type="email" name="email" id="email" value="john.doe@gmail.com" formControlName="email">
                 </div>
-                <ng-container *ngIf="form.get('email')?.touched" >
+                <ng-container *ngIf="form.get('email')?.touched">
 
                     <p class="error" *ngIf="form.get('email')?.errors?.['required']">
                         Email is required!
@@ -44,12 +44,12 @@
                     <p class="error" *ngIf="form.get('email')?.errors?.['appEmailValidator']">
                         Email is not valid!
                     </p>
-                      </ng-container>
+                </ng-container>
                 <div class="flex">
                     <p>Phone: </p>
                     <div>
                         <select name="select-tel" id="select-tel" class="tel" formControlName="ext">
-                            <option value="00359" >+359</option>
+                            <option value="00359">+359</option>
                         </select>
                         <input type="text" name="tel" id="tel" value="885 888 888" formControlName="tel">
                     </div>
