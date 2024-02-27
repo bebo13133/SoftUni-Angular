@@ -11,7 +11,7 @@ import { AppInterceptor, apiInterceptorProvider } from './app.interceptor';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet,CommonModule, ReducePipe],
-  providers:[AppInterceptor],
+
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
