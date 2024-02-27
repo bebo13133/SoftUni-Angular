@@ -16,5 +16,7 @@ export class AppComponent {
   sum(a:number,b:number):number{
     return a+b
   }
-
+  addProperty():void{
+    
+  }
 }
