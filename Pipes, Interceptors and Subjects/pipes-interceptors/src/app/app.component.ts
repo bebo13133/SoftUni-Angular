@@ -17,6 +17,8 @@ export class AppComponent {
     return a+b
   }
   addProperty():void{
-    
+    (this.user as any)["test1"] = 'test1';
+    this.user.list = [...this.user.list, 100]
+    console.log(this.user)
   }
 }
