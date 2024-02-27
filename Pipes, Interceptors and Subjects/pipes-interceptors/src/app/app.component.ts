@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ReducePipe } from './reduce.pipe';
+import { interval, map } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -21,4 +22,5 @@ export class AppComponent {
     this.user.list = [...this.user.list, 100]
     console.log(this.user)
   }
+  date$ = interval (1000).pipe(map(()=> new Date()))
 }
