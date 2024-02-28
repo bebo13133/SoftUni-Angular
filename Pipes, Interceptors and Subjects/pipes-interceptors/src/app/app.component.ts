@@ -5,12 +5,13 @@ import { ReducePipe } from './reduce.pipe';
 import { interval, map } from 'rxjs';
 import { UserService } from './user.service';
 
-import { AppInterceptor, apiInterceptorProvider } from './app.interceptor';
+
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,CommonModule, ReducePipe],
+  imports: [RouterOutlet,CommonModule, ReducePipe,HttpClientModule,],
 
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -29,8 +30,8 @@ export class AppComponent implements OnInit {
   date$ = interval (1000).pipe(map(()=> new Date()))
 constructor (private userService: UserService){}
   ngOnInit(): void {
-    this.userService.loadUsers().subscribe({
-      next: console.log,
+    this.userService.loadUsers().subscribe(users =>{
+      next:console.log(users)
     })
   }
 }

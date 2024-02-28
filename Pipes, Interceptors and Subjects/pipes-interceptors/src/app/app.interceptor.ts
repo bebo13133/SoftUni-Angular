@@ -8,16 +8,20 @@ export class AppInterceptor implements HttpInterceptor {
         
         let request = req
         if(req.url.startsWith('/api')){
+        
             request = req.clone({
-                url: req.url.replace('/api',API_URL)
+                url: req.url.replace('/api', API_URL)
             })
         }
         return next.handle(request).pipe(tap((req)=>{
-            console.log(req)
+            if (req instanceof HttpRequest) {
+                console.log("vlvlvl",req);
+              }
         }))
     }
 
 }
+
 export const apiInterceptorProvider: Provider ={
     provide: HTTP_INTERCEPTORS,
     multi:true,
