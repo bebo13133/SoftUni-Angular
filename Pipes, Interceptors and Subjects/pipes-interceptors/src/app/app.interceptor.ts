@@ -1,5 +1,5 @@
 import { HTTP_INTERCEPTORS, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
-import { Observable, tap } from "rxjs";
+import { EMPTY, Observable, catchError, tap } from "rxjs";
 import { API_URL } from "./constants";
 import { Provider } from "@angular/core";
 
@@ -17,7 +17,14 @@ export class AppInterceptor implements HttpInterceptor {
             if (req instanceof HttpRequest) {
                 console.log("vlvlvl",req);
               }
-        }))
+        }),
+         catchError((err:any)=>{
+            console.log(err)
+
+            if(err.status === 0 ) return EMPTY;
+            return [err]
+         })
+        )
     }
 
 }
