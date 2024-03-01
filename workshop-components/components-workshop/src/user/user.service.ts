@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../app/types/user';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -25,7 +26,7 @@ export class UserService {
   }
 
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private http:HttpClient) {
     try {
 
       const lcUser = localStorage.getItem(this.USER_KEY) || "";
@@ -35,14 +36,20 @@ export class UserService {
     }
   }
 
-  login(): void {
-    this.user = {
-      email: "bebo@abv.bg",
-      firstName: "Bobi",
-      username:"Bobi",
-      tel: "+00359 123123123",
-    }
-    localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
+  login(email:string, password:string) {
+    // this.user = {
+    //   email.
+    //   firstName: "Bobi",
+    //   username:"Bobi",
+    //   tel: "+00359 123123123",
+    // }
+    // localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
+  return this.http.post('/api/login', {email,password})
+  }
+
+  register (username:string, tel: string, email:string, password:string, rePassword:string) {
+  return this.http.post('/api/register', {username, email, tel, password, rePassword })
+
   }
   logout(): void {
     this.user = null;
