@@ -39,14 +39,7 @@
             placeholder="john.doe@gmail.com"
             formControlName="email"
           />
-  
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="john.doe@gmail.com"
-          />
-        </p>
+          </p>
   
         <ng-container *ngIf="form.get('email')?.touched">
           <p class="error" *ngIf="form.get('email')?.errors?.['required']">
