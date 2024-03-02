@@ -55,12 +55,15 @@ export class UserService {
   }
 
   register (username:string, tel: string, email:string, password:string, rePassword:string) {
-  return this.http.post('/api/register', {username, email, tel, password, rePassword })
+  return this.http.post<User>('/api/register', {username, email, tel, password, rePassword })
+  .pipe(tap((user)=>this.user$$.next(user)))
+
 
   }
   logout(){
     // this.user = undefined;
     // localStorage.removeItem(this.USER_KEY);
-    return this.http.post<User>('/api/logout',{}).pipe(tap(()=>this.user$$.next(undefined)))
+    return this.http.post<User>('/api/logout',{})
+    .pipe(tap(()=>this.user$$.next(undefined)))
   }
 }

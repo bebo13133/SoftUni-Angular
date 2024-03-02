@@ -19,13 +19,19 @@ export class HeaderComponent {
     return this.userService.isLogged
   }
   get firstName(): string {
-    return this.userService.user?.firstName||''
+    return this.userService.user?.firstName || ''
   }
-  
+
   logout(): void {
-     this.userService.logout().subscribe(() => {
-      next:
-     });
-    this.router.navigate(['/login']);
+    this.userService.logout().subscribe({
+      next: () => {
+        this.router.navigate(['/login']);
+
+      },
+      error: () => {
+        this.router.navigate(['/login']);
+
+      },
+    });
   }
 }
