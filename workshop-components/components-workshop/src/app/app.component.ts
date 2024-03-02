@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './api.service';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { HomeComponent } from './home/home.component';
+import { AuthenticateComponent } from './authenticate/authenticate.component';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ import { HomeComponent } from './home/home.component';
     MainComponent, 
     HttpClientModule, 
     LoaderComponent, 
+    AuthenticateComponent
    ],
   providers: [HttpClientModule, ApiService],
   templateUrl: './app.component.html',
