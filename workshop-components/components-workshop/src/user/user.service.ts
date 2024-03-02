@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { User } from '../app/types/user';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, tap } from 'rxjs';
 
 
 
@@ -10,8 +11,14 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserService {
+  private user$$ = new BehaviorSubject<User | undefined>(undefined)
+
+  user$ = this.user$$.asObservable();
+
+
+
   USER_KEY = '[user]'
-  user: User | null = {
+  user: User | undefined = {
     username: "Bobi",
     email: "test@test.com",
     tel: '+00359 123123123'
@@ -32,7 +39,7 @@ export class UserService {
       const lcUser = localStorage.getItem(this.USER_KEY) || "";
       this.user = JSON.parse(lcUser);
     } catch (err) {
-      this.user = null;
+      this.user = undefined;
     }
   }
 
@@ -44,16 +51,16 @@ export class UserService {
     //   tel: "+00359 123123123",
     // }
     // localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
-  return this.http.post('/api/login', {email,password})
+  return this.http.post<User>('/api/login', {email,password}).pipe(tap((user)=>this.user$$.next(user)));
   }
 
   register (username:string, tel: string, email:string, password:string, rePassword:string) {
   return this.http.post('/api/register', {username, email, tel, password, rePassword })
 
   }
-  logout(): void {
-    this.user = null;
-    localStorage.removeItem(this.USER_KEY);
-
+  logout(){
+    // this.user = undefined;
+    // localStorage.removeItem(this.USER_KEY);
+    return this.http.post<User>('/api/logout',{}).pipe(tap(()=>this.user$$.next(undefined)))
   }
 }
