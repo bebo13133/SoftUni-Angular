@@ -7,6 +7,7 @@ import { NewThemeComponent } from './theme/new-theme/new-theme.component';
 import { MainComponent } from './main/main.component';
 import { CurrentThemeComponent } from './theme/current-theme/current-theme.component';
 import { AuthActivate } from './core/guards/auth.activate';
+import { ErrorComponent } from './core/error/error.component';
 
 export const routes: Routes = [{
     path: '',
@@ -28,6 +29,11 @@ export const routes: Routes = [{
     path: 'register',
     // canActivate:[AuthActivate],
     component: RegisterComponent,
+},
+{
+    path: 'error',
+    // canActivate:[AuthActivate],
+    component: ErrorComponent,
 },
 {
     path: 'profile',
