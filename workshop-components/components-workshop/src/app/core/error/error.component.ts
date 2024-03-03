@@ -6,18 +6,18 @@ import { AsyncPipe, JsonPipe } from '@angular/common';
 @Component({
   selector: 'app-error',
   standalone: true,
-  imports: [JsonPipe,AsyncPipe],
+  imports: [JsonPipe, AsyncPipe],
   templateUrl: './error.component.html',
   styleUrl: './error.component.css'
 })
 export class ErrorComponent implements OnInit {
-apiError$ = this.errorService.apiError$$.asObservable();
-  constructor(private errorService:ErrorService){}
+  apiError$ = this.errorService.apiError$$.asObservable();
+  constructor(private errorService: ErrorService) { }
   errMsg = ''
 
-ngOnInit(): void {
-  this.apiError$.subscribe((err:any)=>{
-    this.errMsg = err.message
-  })
-}
+  ngOnInit(): void {
+    this.apiError$.subscribe((err: any) => {
+      this.errMsg = err.message
+    })
+  }
 }
