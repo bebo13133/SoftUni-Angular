@@ -7,11 +7,12 @@ import { WelcomeComponent } from '../welcome/welcome.component';
 import { RouterLink } from '@angular/router';
 import { UserService } from '../../user/user.service';
 import { SlicePipe } from '../shared/pipes/slice.pipe';
+import { ElapsedTimePipe } from '../shared/pipes/elapsed-time.pipe';
 
 @Component({
   selector: 'app-themes-list',
   standalone: true,
-  imports: [CommonModule,LoaderComponent,WelcomeComponent,RouterLink,SlicePipe],
+  imports: [CommonModule,LoaderComponent,WelcomeComponent,RouterLink,SlicePipe,ElapsedTimePipe],
   templateUrl: './themes-list.component.html',
   styleUrl: './themes-list.component.css'
 })
